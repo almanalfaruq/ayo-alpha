@@ -19,4 +19,22 @@
     <string name="title_messages">Messages</string>
     <string name="title_friends">Friends</string>
     <string name="title_home">Home</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Add Activities</string>
+    <string name="slide_1_desc">You can add your activities to this app!</string>
+
+    <string name="slide_2_title">Recorded</string>
+    <string name="slide_2_desc">Your activities will be recorded (Date and Time)</string>
+
+    <string name="slide_3_title">Are You On Time?</string>
+    <string name="slide_3_desc">You will see if you are on time in every activity you do.</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
 </resources>

@@ -4,11 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icon_ayo"
+        android:icon="@mipmap/logo"
         android:label="AYO"
         android:supportsRtl="true"
         android:theme="@style/ayo">
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +17,10 @@
         </activity>
 
         <activity android:name=".add_kegiatan"></activity>
+        <activity
+            android:name="com.example.root.ayo_alpha.MainActivity"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/ayo"></activity>
 
     </application>
 
