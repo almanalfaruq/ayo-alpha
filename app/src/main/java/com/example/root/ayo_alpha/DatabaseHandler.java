@@ -30,7 +30,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -67,6 +66,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Inserting Row
         long result = db.insert(TABLE_EVENT, null, values);
+        db.close();
         if (result == -1) return false;
         else return true;
     }

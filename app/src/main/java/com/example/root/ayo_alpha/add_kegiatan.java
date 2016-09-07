@@ -17,7 +17,7 @@ import android.widget.Toast;
  */
 public class add_kegiatan extends AppCompatActivity
 {
-    DatabaseHandler db = new DatabaseHandler(this);
+    DatabaseHandler db;
     ImageButton goToHomeScreen;
     EditText textTitle, textdesc;
     Button save;
@@ -56,6 +56,7 @@ public class add_kegiatan extends AppCompatActivity
     }
 
     public void addData() {
+        db = new DatabaseHandler(this);
         boolean isInserted = db.addEvent(textTitle.getText().toString(), textdesc.getText().toString(), "", "", "");
         if (isInserted)
             Toast.makeText(this, "Activity Added", Toast.LENGTH_LONG);
