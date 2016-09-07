@@ -3,6 +3,7 @@ package com.example.root.ayo_alpha;
 /**
  * Created by axellageraldinc on 9/6/16.
  */
+        import android.content.res.AssetManager;
         import android.database.Cursor;
         import android.graphics.Typeface;
         import android.os.Bundle;
@@ -23,9 +24,11 @@ public class OneFragment extends Fragment{
     }
 
     ListView listView;
+    TextView activity, location, date, time, nextactivity;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -33,8 +36,20 @@ public class OneFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.home_real, container, false);
-        listView = (ListView) view.findViewById(R.id.listView);
 
+        listView = (ListView) view.findViewById(R.id.listView);
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Regular.ttf");
+        activity = (TextView) activity.findViewById(R.id.textView3);
+        activity.setTypeface(type);
+        location = (TextView) location.findViewById(R.id.textView4);
+        location.setTypeface(type);
+        date = (TextView) date.findViewById(R.id.textView5);
+        date.setTypeface(type);
+        time = (TextView) time.findViewById(R.id.textView11);
+        time.setTypeface(type);
+        Typeface type2 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
+        nextactivity = (TextView) nextactivity.findViewById(R.id.textView12);
+        nextactivity.setTypeface(type2);
         return view;
 
     }

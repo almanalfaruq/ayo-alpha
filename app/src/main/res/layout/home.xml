@@ -14,14 +14,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed"
-            app:tabGravity="fill"/>
+            app:tabGravity="fill"
+            android:background="@color/birumuda"
+            app:tabTextColor="@color/textColorPrimary"/>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/colorPrimary"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -30,8 +33,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/colorPrimary"
-        android:tint="#FFFF"
-        app:elevation="3dp" />
+        app:backgroundTint="@color/textColorPrimary"
+        android:tint="@color/colorPrimary"
+        app:elevation="5dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
