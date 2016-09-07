@@ -55,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addEvent(String event, String location, String date, String desc, String time) {
+    public boolean addEvent(String event, String location, String date, String desc, String time) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -66,8 +66,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_TIME, time);
 
         // Inserting Row
-        db.insert(TABLE_EVENT, null, values);
-        db.close(); // Closing database connection
+        long result = db.insert(TABLE_EVENT, null, values);
+        if (result == -1) return false;
+        else return true;
     }
 
     public Event getEvent(int id) {
