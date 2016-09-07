@@ -55,14 +55,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addEvent(Event event) {
+    public void addEvent(String event, String location, String date, String desc, String time) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_EVENT, event.getEvent()); // Event Event Name
-        values.put(KEY_LOC, event.getLocation()); // Event Location
-        values.put(KEY_DATE, event.getDate()); // Event Date
-        values.put(KEY_DESC, event.getDescription()); // Event Description
+        values.put(KEY_EVENT, event); // Event Event Name
+        values.put(KEY_LOC, location); // Event Location
+        values.put(KEY_DATE, date); // Event Date
+        values.put(KEY_DESC, desc); // Event Description
+        values.put(KEY_TIME, time);
 
         // Inserting Row
         db.insert(TABLE_EVENT, null, values);
