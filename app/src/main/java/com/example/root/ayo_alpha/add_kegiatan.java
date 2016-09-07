@@ -31,9 +31,4 @@ public class add_kegiatan extends AppCompatActivity
         });
     }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f93e593eddc2cce4570034909f403800fba14148
 }

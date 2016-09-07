@@ -21,12 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FloatingActionButton fab;
-<<<<<<< HEAD
     private static long back_pressed;
-=======
 
     DatabaseHandler db;
->>>>>>> f93e593eddc2cce4570034909f403800fba14148
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
