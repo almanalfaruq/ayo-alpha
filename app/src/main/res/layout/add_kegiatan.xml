@@ -131,7 +131,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Set Location"
+                android:text="Location"
                 android:id="@+id/btnSetLoc"
                 android:background="@color/textColorPrimary"
                 style="?android:attr/borderlessButtonStyle"
