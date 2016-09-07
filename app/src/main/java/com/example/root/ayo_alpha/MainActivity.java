@@ -55,10 +55,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        if(back_pressed + 2000>System.currentTimeMillis())
+        {
+            super.onBackPressed();
+        }
+        else{
+            Toast.makeText(getBaseContext(),"Press once again to exit!",Toast.LENGTH_SHORT).show();
+            back_pressed = System.currentTimeMillis();
+        }
     }
 
     private void setupViewPager(ViewPager viewPager) {

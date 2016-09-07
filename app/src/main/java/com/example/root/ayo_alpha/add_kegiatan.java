@@ -25,6 +25,7 @@ public class add_kegiatan extends AppCompatActivity
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivityForResult(myIntent, 0);
+                finish();
             }
 
         });
