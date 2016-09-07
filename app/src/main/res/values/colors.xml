@@ -3,11 +3,12 @@
     <color name="colorPrimary">#1BA0E2</color>
     <color name="colorPrimaryDark">#1371a0</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="windowBackground">#c2d6d6</color>
+    <color name="windowBackground">#E8E8E8</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="birumuda">#48b4ea</color>
     <color name="black">#000000</color>
+    <color name="fontgelap">#484848</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>

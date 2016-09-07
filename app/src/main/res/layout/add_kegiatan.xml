@@ -2,27 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <RelativeLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/batal_button"
             android:src="@android:drawable/ic_delete"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/birumuda"
             android:tint="@color/textColorPrimary"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp" />
+            android:paddingRight="270dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -34,18 +35,18 @@
             android:textSize="15dp"
             android:backgroundTint="@color/colorPrimary"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="4dp"
             android:textStyle="bold"
             android:clickable="true"
-            style="?android:attr/borderlessButtonStyle"/>
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="3dp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout"
@@ -63,8 +64,34 @@
             android:singleLine="false"
             android:background="@android:color/transparent"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:textCursorDrawable="@null"/>
+
+        <FrameLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginTop="20dp"
+            android:background="@color/textColorPrimary"
+            android:elevation="5dp"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:hint="Description"
+                android:id="@+id/txtDesc"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:minLines="2"
+                android:maxLines="6"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:background="@android:color/transparent"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/black"
+                android:gravity="left" />
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -72,23 +99,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:id="@+id/txtDesc"
-            android:inputType="textMultiLine"
-            android:gravity="top|left"
-            android:lines="5"
-            android:minLines="2"
-            android:maxLines="6"
-            android:layout_marginTop="100dp"
-            android:scrollbars="vertical"
-            android:scrollHorizontally="false"
-            android:background="@android:color/transparent"
-            android:textCursorDrawable="@null"
-            android:textColor="@color/black"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -100,7 +110,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Date"
-                android:id="@+id/btnSetDate" />
+                android:id="@+id/btnSetDate"
+                android:background="@color/textColorPrimary"
+                style="?android:attr/borderlessButtonStyle"
+                android:elevation="4dp"
+                android:textColor="@color/fontgelap" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -108,15 +122,24 @@
                 android:text="Set Time"
                 android:id="@+id/btnSetTime"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:background="@color/textColorPrimary"
+                style="?android:attr/borderlessButtonStyle"
+                android:elevation="4dp"
+                android:textColor="@color/fontgelap"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Location"
-                android:id="@+id/btnSetLoc" />
+                android:id="@+id/btnSetLoc"
+                android:background="@color/textColorPrimary"
+                style="?android:attr/borderlessButtonStyle"
+                android:elevation="4dp"
+                android:textColor="@color/fontgelap"/>
 
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
