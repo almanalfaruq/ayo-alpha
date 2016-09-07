@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            android:background="@color/birumuda" />
+            android:background="@color/birumuda"
+            app:tabTextColor="@color/textColorPrimary"/>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
@@ -23,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -34,6 +35,6 @@
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/textColorPrimary"
         android:tint="@color/colorPrimary"
-        app:elevation="3dp"/>
+        app:elevation="5dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
