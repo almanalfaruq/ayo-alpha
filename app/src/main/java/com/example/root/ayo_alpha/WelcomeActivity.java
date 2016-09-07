@@ -147,7 +147,6 @@ public class WelcomeActivity extends AppCompatActivity {
         public void onPageScrolled(int arg0, float arg1, int arg2) {
 
         }
-
         @Override
         public void onPageScrollStateChanged(int arg0) {
 
