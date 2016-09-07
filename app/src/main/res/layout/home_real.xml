@@ -8,11 +8,12 @@
 
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="250dp"
         android:background="@color/bg_screen1"
         android:layout_marginTop="25dp"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:layout_gravity="center_horizontal">
 
         <LinearLayout
             android:orientation="vertical"
@@ -23,7 +24,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="top|center"
+                android:gravity="top"
                 android:elevation="3dp"
                 android:background="@color/colorPrimary">
 
@@ -35,7 +36,8 @@
                     android:id="@+id/textView3"
                     android:textColor="@color/textColorPrimary"
                     android:textStyle="bold"
-                    android:paddingRight="90dp"/>
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,7 +47,8 @@
                     android:id="@+id/textView4"
                     android:textColor="@color/textColorPrimary"
                     android:textStyle="bold"
-                    android:paddingRight="50dp" />
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="60dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +58,7 @@
                     android:id="@+id/textView5"
                     android:textColor="@color/textColorPrimary"
                     android:textStyle="bold"
-                    android:paddingRight="50dp" />
+                    android:layout_marginLeft="55dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -65,7 +68,7 @@
                     android:id="@+id/textView11"
                     android:textColor="@color/textColorPrimary"
                     android:textStyle="bold"
-                    android:paddingRight="10dp" />
+                    android:layout_marginLeft="50dp" />
 
             </LinearLayout>
 
@@ -73,7 +76,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/listView"
-                android:scrollbars="vertical">
+                android:scrollbars="vertical"
+                android:background="@color/colorPrimary">
 
             </ListView>
 
@@ -82,11 +86,12 @@
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="90dp"
-        android:layout_marginTop="50dp"
         android:background="@color/birumuda"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp">
 
         <LinearLayout
             android:orientation="vertical"

@@ -32,6 +32,6 @@
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/colorPrimary"
         android:tint="#FFFF"
-        app:elevation="3dp" />
+        app:elevation="3dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
