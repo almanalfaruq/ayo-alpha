@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent">
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/txtActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="txtActivity"
+            android:layout_weight="1"
+            android:height="20sp" />
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/txtLocation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="txtLocation"
+            android:layout_weight="1"
+            android:height="20sp" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:id="@+id/txtDate"
+            android:text="txtDate"
+            android:height="20sp" />
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/txtTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="txtTime"
+            android:layout_weight="1"
+            android:height="20sp" />
+
+</LinearLayout>
