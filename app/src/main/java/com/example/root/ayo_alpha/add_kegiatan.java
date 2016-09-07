@@ -26,13 +26,13 @@ public class add_kegiatan extends AppCompatActivity
         goToHomeScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), MainActivity.class);
-                startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
                 finish();
             }
 
         });
         EditText textTitle = (EditText) findViewById(R.id.txtTitle);
-        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
+        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
         textTitle.setTypeface(type);
         EditText textdesc = (EditText) findViewById(R.id.txtDesc);
         textdesc.setTypeface(type);
@@ -40,4 +40,5 @@ public class add_kegiatan extends AppCompatActivity
         Button save = (Button) findViewById(R.id.btnSave);
         save.setTypeface(type2);
     }
+
 }

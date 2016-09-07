@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FloatingActionButton fab;
-    private static long back_pressed;
 
     DatabaseHandler db;
 
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -44,32 +44,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, add_kegiatan.class);
                 startActivity(intent);
+                finish();
             }
-
         });
 
         db = new DatabaseHandler(this);
 
-        /*Button gotoaddscreen = (Button) findViewById(R.id.add_button);
-        gotoaddscreen.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), add_kegiatan.class);
-                startActivityForResult(myIntent, 0);
-            }
-
-        });*/
-    }
-    @Override
-    public void onBackPressed()
-    {
-        if(back_pressed + 2000>System.currentTimeMillis())
-        {
-            super.onBackPressed();
-        }
-        else{
-            Toast.makeText(getBaseContext(),"Press once again to exit!",Toast.LENGTH_SHORT).show();
-            back_pressed = System.currentTimeMillis();
-        }
     }
 
     private void setupViewPager(ViewPager viewPager) {
