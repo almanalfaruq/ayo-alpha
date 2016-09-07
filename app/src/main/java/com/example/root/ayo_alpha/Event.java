@@ -10,17 +10,19 @@ public class Event {
     private String location;
     private String date;
     private String description;
+    private String time;
 
     public Event() {
 
     }
 
-    public Event(int id, String event, String location, String date, String description) {
+    public Event(int id, String event, String location, String date, String description, String time) {
         this.id = id;
         this.event = event;
         this.location = location;
         this.date = date;
         this.description = description;
+        this.time = time;
     }
 
     public int getId() {
@@ -61,6 +63,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
 }

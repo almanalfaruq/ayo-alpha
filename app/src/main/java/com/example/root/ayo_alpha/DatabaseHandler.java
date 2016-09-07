@@ -37,7 +37,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create table
         db.execSQL("CREATE TABLE " + TABLE_EVENT
-                + " (" + KEY_ID + " INTEGER PRIMARY KEY, "
+                + " (" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_EVENT + " TEXT, "
                 + KEY_LOC + " TEXT, "
                 + KEY_DATE + " TEXT, "
@@ -74,13 +74,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_EVENT, new String[] { KEY_ID,
-                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC }, KEY_ID + "=?",
+                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         Event event = new Event(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
         // return event
         return event;
     }
