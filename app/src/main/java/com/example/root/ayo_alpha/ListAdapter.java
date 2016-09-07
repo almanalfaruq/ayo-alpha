@@ -14,7 +14,7 @@ import com.example.root.ayo_alpha.R;
  * Created by root on 07/09/16.
  */
 public class ListAdapter extends CursorAdapter {
-    public TodoCursorAdapter(Context context, Cursor cursor) {
+    public ListAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
     }
 
@@ -36,9 +36,13 @@ public class ListAdapter extends CursorAdapter {
         TextView txtTime = (TextView) view.findViewById(R.id.txtTime);
         // Extract properties from cursor
         String event = cursor.getString(cursor.getColumnIndexOrThrow("event"));
-        String location = cursor.getInt(cursor.getColumnIndexOrThrow("location"));
+        String location = cursor.getString(cursor.getColumnIndexOrThrow("location"));
+        String date = cursor.getString(cursor.getColumnIndexOrThrow("date"));
+        String time = cursor.getString(cursor.getColumnIndexOrThrow("date"));
         // Populate fields with extracted properties
-        tvBody.setText(body);
-        tvPriority.setText(String.valueOf(priority));
+        txtActivity.setText(event);
+        txtLocation.setText(location);
+        txtDate.setText(date);
+        txtTime.setText(time);
     }
 }
