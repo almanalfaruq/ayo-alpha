@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/birumuda"
+        android:background="@color/bg_screen1"
         android:layout_marginTop="25dp"
         android:elevation="5dp">
 
@@ -23,7 +23,9 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="top|center">
+                android:gravity="top|center"
+                android:elevation="3dp"
+                android:background="@color/colorPrimary">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -33,7 +35,7 @@
                     android:id="@+id/textView3"
                     android:textColor="@color/textColorPrimary"
                     android:textStyle="bold"
-                    android:paddingRight="90dp" />
+                    android:paddingRight="90dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,7 +83,9 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:elevation="3dp">
 
             <TextView
                 android:layout_width="wrap_content"

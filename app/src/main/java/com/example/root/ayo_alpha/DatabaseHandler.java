@@ -28,17 +28,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Create table
-        db.execSQL("CREATE TABLE" + TABLE_EVENT
-                + " (" + KEY_ID + "INTEGER PRIMARY KEY, "
-                + KEY_EVENT + "TEXT, "
-                + KEY_LOC + "TEXT, "
-                + KEY_DATE + "TEXT, "
-                + KEY_DESC + "TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_EVENT
+                + " (" + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_EVENT + " TEXT, "
+                + KEY_LOC + " TEXT, "
+                + KEY_DATE + " TEXT, "
+                + KEY_DESC + " TEXT)");
 
     }
 

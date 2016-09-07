@@ -1,6 +1,7 @@
 package com.example.root.ayo_alpha;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,12 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FloatingActionButton fab;
-<<<<<<< HEAD
     private static long back_pressed;
-=======
 
     DatabaseHandler db;
->>>>>>> f93e593eddc2cce4570034909f403800fba14148
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         db = new DatabaseHandler(this);
+
         /*Button gotoaddscreen = (Button) findViewById(R.id.add_button);
         gotoaddscreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
