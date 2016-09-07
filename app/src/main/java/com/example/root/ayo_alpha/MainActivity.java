@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FloatingActionButton fab;
+
+    DatabaseHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        db = new DatabaseHandler(this);
         /*Button gotoaddscreen = (Button) findViewById(R.id.add_button);
         gotoaddscreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
