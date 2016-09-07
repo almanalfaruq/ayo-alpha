@@ -8,11 +8,10 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -21,24 +20,25 @@
             android:src="@android:drawable/ic_delete"
             android:backgroundTint="@color/colorPrimary"
             android:tint="@color/textColorPrimary"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginTop="-5dp" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Save"
-            android:id="@+id/textView"
+            android:id="@+id/btnSave"
             android:textColor="#FFFF"
             android:textSize="15dp"
-            android:gravity="right"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="-2dp"
+            android:layout_marginTop="4dp"
             android:textStyle="bold"
             android:clickable="true" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -53,7 +53,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/editText"
+            android:id="@+id/txtTitle"
             android:gravity="left|bottom"
             android:hint="Title"
             android:textColor="#FFFF"
@@ -67,12 +67,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="81dp"
-            android:text="Description"
-            android:id="@+id/textView2"
-            android:layout_marginTop="100dp" />
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:id="@+id/txtDesc"
+            android:inputType="textMultiLine"
+            android:gravity="top|left"
+            android:lines="5"
+            android:minLines="2"
+            android:maxLines="6"
+            android:layout_marginTop="100dp"
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -84,13 +91,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Date"
-                android:id="@+id/button" />
+                android:id="@+id/btnSetDate" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Time"
-                android:id="@+id/button2"
+                android:id="@+id/btnSetTime"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp" />
 
@@ -98,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Location"
-                android:id="@+id/button3" />
+                android:id="@+id/btnSetLoc" />
 
         </LinearLayout>
     </LinearLayout>
