@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_NAME = "EventManager";
+    private static final String DATABASE_NAME = "EventManager.db";
 
     private static final String TABLE_EVENT = "event";
 
@@ -25,11 +26,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_LOC = "location";
     private static final String KEY_DATE = "date";
     private static final String KEY_DESC = "description";
+    private static final String KEY_TIME = "time";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         SQLiteDatabase db = this.getWritableDatabase();
-
     }
 
     @Override
@@ -40,8 +41,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_EVENT + " TEXT, "
                 + KEY_LOC + " TEXT, "
                 + KEY_DATE + " TEXT, "
-                + KEY_DESC + " TEXT)");
-
+                + KEY_DESC + " TEXT,"
+                + KEY_TIME + " TEXT)");
+        Log.d("Creating: ", "Database created.");
     }
 
     @Override
