@@ -1,5 +1,6 @@
 package com.example.root.ayo_alpha;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.Image;
@@ -62,4 +63,10 @@ public class add_kegiatan extends AppCompatActivity
         else
             Toast.makeText(this, "Can't insert data", Toast.LENGTH_LONG);
     }
+
+    public void onButtonClicked(View v){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(),"Date Picker");
+    }
+
 }

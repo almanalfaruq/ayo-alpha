@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            android:background="@color/birumuda"
+            android:background="@color/bg_screen3"
             app:tabTextColor="@color/textColorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
