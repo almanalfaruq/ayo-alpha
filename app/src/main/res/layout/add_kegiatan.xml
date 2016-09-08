@@ -12,8 +12,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -22,8 +21,7 @@
             android:src="@android:drawable/ic_delete"
             android:backgroundTint="@color/birumuda"
             android:tint="@color/textColorPrimary"
-            android:layout_alignParentLeft="true"
-            android:paddingRight="270dp" />
+            android:layout_alignParentLeft="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -39,7 +37,8 @@
             android:clickable="true"
             style="?android:attr/borderlessButtonStyle"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="220dp" />
 
     </LinearLayout>
 
@@ -93,50 +92,51 @@
                 android:gravity="left" />
         </FrameLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_marginTop="30dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Set Date"
-                android:id="@+id/btnSetDate"
-                android:background="@color/textColorPrimary"
-                style="?android:attr/borderlessButtonStyle"
-                android:elevation="4dp"
-                android:textColor="@color/fontgelap" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Set Time"
-                android:id="@+id/btnSetTime"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/textColorPrimary"
-                style="?android:attr/borderlessButtonStyle"
-                android:elevation="4dp"
-                android:textColor="@color/fontgelap"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set Date"
+                    android:id="@+id/btnSetDate"
+                    android:background="@color/textColorPrimary"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:elevation="4dp"
+                    android:textColor="@color/fontgelap" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:id="@+id/btnSetLoc"
-                android:background="@color/textColorPrimary"
-                style="?android:attr/borderlessButtonStyle"
-                android:elevation="4dp"
-                android:textColor="@color/fontgelap"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set Time"
+                    android:id="@+id/btnSetTime"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/textColorPrimary"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:elevation="4dp"
+                    android:textColor="@color/fontgelap"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:id="@+id/btnSetLoc"
+                    android:background="@color/textColorPrimary"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:elevation="4dp"
+                    android:textColor="@color/fontgelap"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

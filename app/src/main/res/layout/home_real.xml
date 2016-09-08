@@ -13,7 +13,8 @@
         android:layout_height="250dp"
         android:layout_marginTop="25dp"
         android:elevation="5dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:background="@color/textColorPrimary">
 
         <LinearLayout
             android:orientation="vertical"
@@ -82,32 +83,6 @@
 
         </LinearLayout>
 
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="350dp"
-        android:layout_height="90dp"
-        android:elevation="5dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/textColorPrimary"
-            android:elevation="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Next Activity"
-                android:id="@+id/textView12"
-                android:layout_gravity="center_horizontal"
-                android:textColor="@color/fontgelap"
-                android:textStyle="bold" />
-        </LinearLayout>
     </FrameLayout>
 
 </LinearLayout>

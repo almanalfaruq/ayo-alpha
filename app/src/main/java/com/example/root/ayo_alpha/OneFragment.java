@@ -39,7 +39,7 @@ public class OneFragment extends Fragment{
 
         listView = (ListView) view.findViewById(R.id.listView);
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Regular.ttf");
-        activity = (TextView) activity.findViewById(R.id.textView3);
+        /*activity = (TextView) activity.findViewById(R.id.textView3);
         activity.setTypeface(type);
         location = (TextView) location.findViewById(R.id.textView4);
         location.setTypeface(type);
@@ -49,7 +49,7 @@ public class OneFragment extends Fragment{
         time.setTypeface(type);
         Typeface type2 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         nextactivity = (TextView) nextactivity.findViewById(R.id.textView12);
-        nextactivity.setTypeface(type2);
+        nextactivity.setTypeface(type2);*/
         return view;
 
     }

@@ -49,7 +49,6 @@ public class add_kegiatan extends AppCompatActivity
                 addData();
                 Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivity(myIntent);
-                finish();
             }
 
         });
