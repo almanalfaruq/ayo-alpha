@@ -28,19 +28,31 @@ package com.example.root.ayo_alpha;
         import com.google.android.gms.maps.model.LatLng;
 
         import java.text.DecimalFormat;
+        import java.text.ParseException;
+        import java.text.SimpleDateFormat;
+        import java.util.Calendar;
+        import java.util.Date;
 
 public class OneFragment extends Fragment{
 
     DatabaseHandler db;
     Button btnShow;
     GPSTracker gpsTracker;
-    LocationManager lm;
+//    Location loc;
+    Event event;
+    Calendar calendar;
+    Date d1 = null, d2 = null;
+    int secc;
+    String timeNow, timeEvent;
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+    float[] distance = new float[2];
     public OneFragment() {
         // Required empty public constructor
     }
 
     ListView listView;
     TextView activity, location, date, time, nextactivity;
+    Double valueResult;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,14 +83,41 @@ public class OneFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 gpsTracker = new GPSTracker(getActivity());
-                if(gpsTracker.canGetLocation()) {
-                    double lat = gpsTracker.getLatitude();
-                    double lng = gpsTracker.getLongitude();
-                    Toast.makeText(getActivity(), "Latitude: " + String.valueOf(lat)
-                            + "\nLogitude: " + String.valueOf(lng), Toast.LENGTH_LONG).show();
+                double lat = gpsTracker.getLocation().getLatitude();
+                double lng = gpsTracker.getLocation().getLongitude();
+                event = db.getEvent(5);
+                timeEvent = event.getTime();
+                calendar = Calendar.getInstance();
+                timeNow = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));
+                try {
+                    d2 = format.parse(timeNow);
+                    Log.d("Jam Sekarang", timeNow);
+                    d1 = format.parse(timeEvent);
+                    long diff = d1.getTime() - d2.getTime();
+                    int days = (int) (diff / (1000*60*60*24));
+                    int hours = (int) ((diff - (1000*60*60*24*days)) / (1000*60*60));
+                    int min = (int) (diff - (1000*60*60*24*days) - (1000*60*60*hours)) / (1000*60);
+                    secc = (int) (diff - (1000*60*60*24*days) - (1000*60*60*hours)) - (1000*60*min) / (1000);
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
-                else {
-                    gpsTracker.showSettingsAlert();
+                Location.distanceBetween(lat
+                        , lng
+                        , Double.parseDouble(event.getLatitude())
+                        , Double.parseDouble(event.getLongitude())
+                        , distance);
+                valueResult = CalculationByDistance(lat, lng, event.getLatitude(), event.getLongitude());
+                Log.d("Selisih waktu", String.valueOf(secc));
+                if (distance[0] > 100.0 && secc <= 0.0) {
+                    Toast.makeText(getActivity(), "Terlalu jauh dan anda terlambat", Toast.LENGTH_SHORT).show();
+                } else if (distance[0] > 100.0 && secc > 0.0) {
+                    Toast.makeText(getActivity(), "Terlalu jauh dan anda belum terlambat", Toast.LENGTH_SHORT).show();
+                } else if (distance[0] < 100 && secc > 0.0) {
+                    Toast.makeText(getActivity()
+                            , "Jarak anda dengan tempat itu: " + String.valueOf(valueResult) + " meter" , Toast.LENGTH_LONG).show();
+                } else if (distance[0] < 100 && secc <= 0.0) {
+                    Toast.makeText(getActivity()
+                            , "Jarak anda dengan tempat itu: " + String.valueOf(valueResult) + " meter, dan anda terlambat" , Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -98,11 +137,11 @@ public class OneFragment extends Fragment{
         listView.setAdapter(cursorAdapter);
     }
 
-    public double CalculationByDistance(LatLng StartP, String LatEndP, String LngEndP) {
+    public double CalculationByDistance(Double LatStartP, Double LngStartP, String LatEndP, String LngEndP) {
         int Radius = 6371;// radius of earth in Km
-        double lat1 = StartP.latitude;
+        double lat1 = LatStartP;
         double lat2 = Double.parseDouble(LatEndP);
-        double lon1 = StartP.longitude;
+        double lon1 = LngStartP;
         double lon2 = Double.parseDouble(LngEndP);
         double dLat = Math.toRadians(lat2 - lat1);
         double dLon = Math.toRadians(lon2 - lon1);
@@ -115,12 +154,12 @@ public class OneFragment extends Fragment{
         double km = valueResult / 1;
         DecimalFormat newFormat = new DecimalFormat("####");
         int kmInDec = Integer.valueOf(newFormat.format(km));
-        double meter = valueResult % 1000;
+        double meter = km*1000 ;
         int meterInDec = Integer.valueOf(newFormat.format(meter));
         Log.i("Radius Value", "" + valueResult + "   KM  " + kmInDec
                 + " Meter   " + meterInDec);
 
-        return valueResult;
+        return meter;
     }
 
 }
