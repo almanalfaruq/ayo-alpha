@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class add_kegiatan extends AppCompatActivity
 {
     DatabaseHandler db;
-    ImageButton goToHomeScreen;
+    ImageButton goToHomeScreen, btnSetLoc;
     EditText textTitle, textdesc;
     Button save;
 
@@ -37,6 +37,17 @@ public class add_kegiatan extends AppCompatActivity
                 Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(myIntent);
                 finish();
+            }
+
+        });
+
+        btnSetLoc = (ImageButton) findViewById(R.id.btnSetLoc);
+        btnSetLoc.setOnClickListener(new View.OnClickListener() {
+            //Back
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), MapScreen.class);
+                startActivity(myIntent);
             }
 
         });

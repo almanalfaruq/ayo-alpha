@@ -142,7 +142,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:id="@+id/btnSetLoc"
-                        android:background="@mipmap/location"/>
+                        android:background="@mipmap/location" />
                 </FrameLayout>
 
             </LinearLayout>

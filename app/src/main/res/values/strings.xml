@@ -37,5 +37,5 @@
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
 
-    <string name="API_KEY">AIzaSyD_I8QOkNlE1tA1Zlk9eyYUknRWQQyqVMI</string>
+    <string name="G_API_KEY">AIzaSyBuo8J7N4AnFMfktukgGTvjyxWLHo3_HW8</string>
 </resources>
