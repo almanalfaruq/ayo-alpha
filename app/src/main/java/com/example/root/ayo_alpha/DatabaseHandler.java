@@ -137,17 +137,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
-
+        db.close();
         return cursor.getCount();
     }
 
     public Cursor getAllData() {
         String query = "SELECT * FROM " + TABLE_EVENT;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
+        Cursor cursor = db.query(true, TABLE_EVENT, null, null, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
+        db.close();
         return cursor;
     }
 }

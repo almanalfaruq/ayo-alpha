@@ -5,9 +5,11 @@ package com.example.root.ayo_alpha;
  */
         import android.content.res.AssetManager;
         import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
         import android.graphics.Typeface;
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
+        import android.support.v4.widget.CursorAdapter;
         import android.support.v4.widget.SimpleCursorAdapter;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -18,7 +20,7 @@ package com.example.root.ayo_alpha;
 
 public class OneFragment extends Fragment{
 
-    DatabaseHandler db = new DatabaseHandler(getActivity());
+    DatabaseHandler db;
     public OneFragment() {
         // Required empty public constructor
     }
@@ -34,6 +36,7 @@ public class OneFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        db = new DatabaseHandler(getActivity());
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.home_real, container, false);
 
@@ -48,6 +51,7 @@ public class OneFragment extends Fragment{
         date.setTypeface(type);
         time = (TextView) view.findViewById(R.id.textView11);
         time.setTypeface(type);
+        populateListView();
         return view;
 
     }
@@ -56,8 +60,8 @@ public class OneFragment extends Fragment{
         Cursor cursor = db.getAllData();
         String[] fieldName = new String[] {"event", "location", "date", "time"};
         int[] toView = new int[] {R.id.txtActivity, R.id.txtLocation, R.id.txtDate, R.id.txtTime};
-        SimpleCursorAdapter simpleCursorAdapter;
-        simpleCursorAdapter = new SimpleCursorAdapter(getContext(), R.layout.adapter_list, cursor, fieldName, toView, 0);
-        listView.setAdapter(simpleCursorAdapter);
+        CursorAdapter cursorAdapter;
+        cursorAdapter = new SimpleCursorAdapter(getContext(), R.layout.adapter_list, cursor, fieldName, toView, 0);
+        listView.setAdapter(cursorAdapter);
     }
 }

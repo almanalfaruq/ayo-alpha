@@ -1,5 +1,6 @@
 package com.example.root.ayo_alpha;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class ListAdapter extends CursorAdapter {
         String event = cursor.getString(cursor.getColumnIndexOrThrow("event"));
         String location = cursor.getString(cursor.getColumnIndexOrThrow("location"));
         String date = cursor.getString(cursor.getColumnIndexOrThrow("date"));
-        String time = cursor.getString(cursor.getColumnIndexOrThrow("date"));
+        String time = cursor.getString(cursor.getColumnIndexOrThrow("time"));
         // Populate fields with extracted properties
         txtActivity.setText(event);
         txtLocation.setText(location);
