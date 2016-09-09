@@ -57,11 +57,11 @@ public class add_kegiatan extends AppCompatActivity
 
     public void addData() {
         db = new DatabaseHandler(this);
-        boolean isInserted = db.addEvent(textTitle.getText().toString(), textdesc.getText().toString(), "", "", "");
+        boolean isInserted = db.addEvent(textTitle.getText().toString(), "", "", textdesc.getText().toString(), "");
         if (isInserted)
-            Toast.makeText(this, "Activity Added", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), textTitle.getText().toString() + " is added", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(this, "Can't insert data", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "Can't insert data", Toast.LENGTH_LONG).show();
     }
 
     public void onButtonClicked(View v){

@@ -6,14 +6,13 @@
     <color name="windowBackground">#3395ff</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#FFFFFF</color>
-    <color name="birumuda">#48b4ea</color>
     <color name="black">#000000</color>
     <color name="fontgelap">#484848</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>
     <color name="bg_screen2">#20d2bb</color>
-    <color name="bg_screen3">#48b4ea</color>
+    <color name="bg_screen3">#4da3ff</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#d1395c</color>
