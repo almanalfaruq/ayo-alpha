@@ -31,8 +31,10 @@ public class add_kegiatan extends AppCompatActivity
         //Tombol batal (tanda x) di klik, balik ke homescreen
         goToHomeScreen = (ImageButton) findViewById(R.id.batal_button);
         goToHomeScreen.setOnClickListener(new View.OnClickListener() {
+            //Back
+            @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(myIntent);
                 finish();
             }
@@ -49,10 +51,13 @@ public class add_kegiatan extends AppCompatActivity
         save = (Button) findViewById(R.id.btnSave);
         save.setTypeface(type2);
         save.setOnClickListener(new View.OnClickListener() {
+            //Back
+            @Override
             public void onClick(View view) {
                 addData();
-                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(myIntent);
+                finish();
             }
 
         });

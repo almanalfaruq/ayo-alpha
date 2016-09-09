@@ -29,16 +29,6 @@ public class TwoFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.conclusion, container, false);
-
-        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
-        persen = (TextView) view.findViewById(R.id.persent);
-        persen.setTypeface(type);
-        totals = (TextView) view.findViewById(R.id.total);
-        totals.setTypeface(type);
-        ontimes = (TextView) view.findViewById(R.id.ontime);
-        ontimes.setTypeface(type);
-        lates = (TextView) view.findViewById(R.id.late);
-        lates.setTypeface(type);
         return view;
     }
 

@@ -14,51 +14,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="75%"
-            android:id="@+id/persent"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/fontgelap"
-            android:textStyle="bold"
-            android:textSize="30dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Total activity"
-            android:id="@+id/total"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/fontgelap" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="On Time"
-            android:id="@+id/ontime"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/fontgelap" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="late time average"
-            android:id="@+id/late"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/fontgelap" />
-
         <com.github.lzyzsd.circleprogress.ArcProgress
             android:id="@+id/arc_progress"
-            android:background="#214193"
-            android:layout_marginLeft="50dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            custom:arc_progress="55"
-            custom:arc_bottom_text="MEMORY"/>
+            android:background="@null"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            custom:arc_progress="80"
+            custom:arc_bottom_text="On time"
+            custom:arc_text_size="40dp"
+            custom:arc_bottom_text_size="20dp"
+            custom:arc_text_color="@color/textColorPrimary"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>
