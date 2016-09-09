@@ -28,7 +28,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".add_kegiatan"></activity>
+        <activity
+            android:name=".add_kegiatan"></activity>
         <activity
             android:name="com.example.root.ayo_alpha.MainActivity"
             android:label="@string/title_activity_welcome"

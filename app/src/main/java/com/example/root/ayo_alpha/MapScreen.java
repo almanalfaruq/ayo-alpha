@@ -48,19 +48,16 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
         savemap = (Button) findViewById(R.id.savemapbtn);
         savemap.setOnClickListener(new View.OnClickListener() {
             //Back
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), add_kegiatan.class);
-                startActivity(myIntent);
-                finish();
+//                Intent myIntent = new Intent(getApplicationContext(), add_kegiatan.class);
+//                startActivity(myIntent);
+                onBackPressed();
             }
-
         });
-
     }
 
     public void onMapSearch(View view) {

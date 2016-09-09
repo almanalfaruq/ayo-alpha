@@ -30,6 +30,7 @@ public class add_kegiatan extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        super.onResume();
         setContentView(R.layout.add_kegiatan);
 
         //Tombol batal (tanda x) di klik, balik ke homescreen
