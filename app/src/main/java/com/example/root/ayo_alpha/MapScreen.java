@@ -38,7 +38,8 @@ import java.util.List;
 public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    public Double lat, lng;
+    public static Double lat;
+    public static Double lng;
     private Button savemap;
 
     @Override

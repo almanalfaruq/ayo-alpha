@@ -22,7 +22,7 @@ public class add_kegiatan extends AppCompatActivity
     DatabaseHandler db;
     ImageButton goToHomeScreen, btnSetLoc;
     EditText textTitle, textdesc;
-    TextView textDate, textTime;
+    TextView textDate, textTime, textLat, textLng;
     Button save;
     DatePickerFragment dp;
     TimePickerFragment tp;
@@ -61,6 +61,8 @@ public class add_kegiatan extends AppCompatActivity
         textDate = (TextView) findViewById(R.id.tv);
         textTime = (TextView) findViewById(R.id.tv2);
         textTitle = (EditText) findViewById(R.id.txtTitle);
+        textLat = (TextView) findViewById(R.id.txtLat);
+        textLng = (TextView) findViewById(R.id.txtLong);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
         textTitle.setTypeface(type);
         textdesc = (EditText) findViewById(R.id.txtDesc);
@@ -84,9 +86,17 @@ public class add_kegiatan extends AppCompatActivity
     public void addData() {
         db = new DatabaseHandler(this);
 //        Toast.makeText(getApplicationContext(), dp.txtDay, Toast.LENGTH_SHORT).show();
-        boolean isInserted = db.addEvent(textTitle.getText().toString(), "", textDate.getText().toString(), textdesc.getText().toString(), textTime.getText().toString(), "", "");
+        boolean isInserted = db.addEvent(textTitle.getText().toString()
+                , ""
+                , textDate.getText().toString()
+                , textdesc.getText().toString()
+                , textTime.getText().toString()
+                , ""
+                , "");
         if (isInserted)
-            Toast.makeText(getApplicationContext(), textTitle.getText().toString() + " is added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext()
+                    , textTitle.getText().toString() + " is added"
+                    , Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(getApplicationContext(), "Can't insert data", Toast.LENGTH_SHORT).show();
     }
@@ -101,6 +111,11 @@ public class add_kegiatan extends AppCompatActivity
     public void onButtonClicked2 (View v){
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(),"TimePicker");
+    }
+
+    public void writeData(Double lat, Double lng) {
+        textLng.setText(String.valueOf(lat));
+        textLat.setText(String.valueOf(lng));
     }
 
 }
