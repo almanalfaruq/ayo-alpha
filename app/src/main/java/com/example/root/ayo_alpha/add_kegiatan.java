@@ -21,13 +21,14 @@ import android.widget.Toast;
 public class add_kegiatan extends AppCompatActivity
 {
     DatabaseHandler db;
-    ImageButton goToHomeScreen, btnSetLoc;
-    EditText textTitle, textdesc;
+    ImageButton goToHomeScreen;
+    EditText textTitle, textdesc, txtPlace;
     TextView textDate, textTime, textLat, textLng, Date, Time, Location;
+    String lat,lng;
     Button save;
     DatePickerFragment dp;
     TimePickerFragment tp;
-    LinearLayout btnSetLoc;
+    ImageButton btnSetLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +49,13 @@ public class add_kegiatan extends AppCompatActivity
 
         });
 
-        btnSetLoc = (LinearLayout) findViewById(R.id.btnSetLoc);
+        btnSetLoc = (ImageButton) findViewById(R.id.btnSetLoc);
         btnSetLoc.setOnClickListener(new View.OnClickListener() {
             //Back
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getApplicationContext(), MapScreen.class);
-                startActivity(myIntent);
+                startActivityForResult(myIntent, 1);
             }
 
         });
@@ -66,6 +67,7 @@ public class add_kegiatan extends AppCompatActivity
         textDate = (TextView) findViewById(R.id.tv);
         textTime = (TextView) findViewById(R.id.tv2);
         textTitle = (EditText) findViewById(R.id.txtTitle);
+        txtPlace = (EditText) findViewById(R.id.txtPlace);
         textLat = (TextView) findViewById(R.id.txtLat);
         textLng = (TextView) findViewById(R.id.txtLong);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
@@ -91,16 +93,28 @@ public class add_kegiatan extends AppCompatActivity
         });
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                lat = data.getStringExtra("latitude");
+                lng = data.getStringExtra("longitude");
+                textLat.setText(lat);
+                textLng.setText(lng);
+            }
+        }
+    }
+
     public void addData() {
         db = new DatabaseHandler(this);
 //        Toast.makeText(getApplicationContext(), dp.txtDay, Toast.LENGTH_SHORT).show();
         boolean isInserted = db.addEvent(textTitle.getText().toString()
-                , ""
+                , txtPlace.getText().toString()
                 , textDate.getText().toString()
                 , textdesc.getText().toString()
                 , textTime.getText().toString()
-                , ""
-                , "");
+                , textLat.getText().toString()
+                , textLng.getText().toString());
         if (isInserted)
             Toast.makeText(getApplicationContext()
                     , textTitle.getText().toString() + " is added"
@@ -121,9 +135,5 @@ public class add_kegiatan extends AppCompatActivity
         newFragment.show(getFragmentManager(),"TimePicker");
     }
 
-    public void writeData(Double lat, Double lng) {
-        textLng.setText(String.valueOf(lat));
-        textLat.setText(String.valueOf(lng));
-    }
 
 }

@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -41,6 +42,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
     public static Double lat;
     public static Double lng;
     private Button savemap;
+    TextView txtLat, txtLng;
     add_kegiatan addKegiatan = new add_kegiatan();
 
     @Override
@@ -50,6 +52,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        txtLat = (TextView) findViewById(R.id.txtLat);
+        txtLng = (TextView) findViewById(R.id.txtLong);
         savemap = (Button) findViewById(R.id.savemapbtn);
         savemap.setOnClickListener(new View.OnClickListener() {
             //Back
@@ -57,8 +61,12 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
             public void onClick(View view) {
 //                Intent myIntent = new Intent(getApplicationContext(), add_kegiatan.class);
 //                startActivity(myIntent);
+                Intent intent = new Intent();
+                intent.putExtra("latitude", txtLat.getText().toString());
+                intent.putExtra("longitude", txtLng.getText().toString());
+                setResult(RESULT_OK, intent);
                 onBackPressed();
-                addKegiatan.writeData(lat,lng);
+
             }
         });
     }
@@ -108,6 +116,8 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
                 .strokeColor(R.color.colorPrimary)
                 .fillColor(R.color.colorPrimary));
                 mMap.addMarker(new MarkerOptions().position(latLng).title("Tes"));
+                txtLat.setText(String.valueOf(latLng.latitude));
+                txtLng.setText(String.valueOf(latLng.longitude));
                 lat = latLng.latitude;
                 lng = latLng.longitude;
 //                Toast.makeText(getApplicationContext(), String.valueOf(latLng.latitude) + "," + String.valueOf(latLng.longitude), Toast.LENGTH_SHORT).show();
