@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class add_kegiatan extends AppCompatActivity
     Button save;
     DatePickerFragment dp;
     TimePickerFragment tp;
+    LinearLayout btnSetLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class add_kegiatan extends AppCompatActivity
 
         });
 
-        btnSetLoc = (ImageButton) findViewById(R.id.btnSetLoc);
+        btnSetLoc = (LinearLayout) findViewById(R.id.btnSetLoc);
         btnSetLoc.setOnClickListener(new View.OnClickListener() {
             //Back
             @Override
