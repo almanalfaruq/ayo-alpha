@@ -22,7 +22,7 @@ public class add_kegiatan extends AppCompatActivity
     DatabaseHandler db;
     ImageButton goToHomeScreen, btnSetLoc;
     EditText textTitle, textdesc;
-    TextView textDate, textTime, textLat, textLng;
+    TextView textDate, textTime, textLat, textLng, Date, Time, Location;
     Button save;
     DatePickerFragment dp;
     TimePickerFragment tp;
@@ -58,6 +58,9 @@ public class add_kegiatan extends AppCompatActivity
         });
 
         //Change font dari title, description, dan tombol save
+        Date = (TextView) findViewById(R.id.textView6);
+        Time = (TextView) findViewById(R.id.textView2);
+        Location = (TextView) findViewById(R.id.textView);
         textDate = (TextView) findViewById(R.id.tv);
         textTime = (TextView) findViewById(R.id.tv2);
         textTitle = (EditText) findViewById(R.id.txtTitle);
@@ -68,6 +71,9 @@ public class add_kegiatan extends AppCompatActivity
         textdesc = (EditText) findViewById(R.id.txtDesc);
         textdesc.setTypeface(type);
         Typeface type2 = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Medium.ttf");
+        Date.setTypeface(type2);
+        Time.setTypeface(type2);
+        Location.setTypeface(type2);
         save = (Button) findViewById(R.id.btnSave);
         save.setTypeface(type2);
         save.setOnClickListener(new View.OnClickListener() {

@@ -98,38 +98,45 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp">
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/btnSetDate">
 
                 <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="3dp">
 
                     <ImageButton
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/btnSetLoc"
-                        android:background="@mipmap/location" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/calendar"
+                        android:onClick="onButtonClicked"/>
                 </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Medium Text"
-                    android:id="@+id/textView"
-                    android:layout_gravity="center_vertical" />
-
+                    android:text="DATE"
+                    android:id="@+id/textView6"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/textColorPrimary" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/btnSetTime">
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -139,7 +146,6 @@
                     <ImageButton
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/btnSetTime"
                         android:background="@mipmap/clock"
                         android:onClick="onButtonClicked2" />
 
@@ -149,35 +155,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Medium Text"
+                    android:text="TIME"
                     android:id="@+id/textView2"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/textColorPrimary" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/btnSetLoc">
 
                 <FrameLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="5dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnSetDate"
-                        android:background="@mipmap/calendar"
-                        android:onClick="onButtonClicked"/>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/location" />
                 </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Medium Text"
-                    android:id="@+id/textView6" />
+                    android:text="LOCATION"
+                    android:id="@+id/textView"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/textColorPrimary" />
+
             </LinearLayout>
 
         </LinearLayout>
