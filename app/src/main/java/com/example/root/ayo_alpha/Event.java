@@ -5,7 +5,7 @@ package com.example.root.ayo_alpha;
  */
 public class Event {
 
-    private int id;
+    private int _id;
     private String event;
     private String location;
     private String date;
@@ -16,8 +16,8 @@ public class Event {
 
     }
 
-    public Event(int id, String event, String location, String date, String description, String time) {
-        this.id = id;
+    public Event(int _id, String event, String location, String date, String description, String time) {
+        this._id = _id;
         this.event = event;
         this.location = location;
         this.date = date;
@@ -26,11 +26,11 @@ public class Event {
     }
 
     public int getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int _id) {
+        this._id = _id;
     }
 
     public String getEvent() {

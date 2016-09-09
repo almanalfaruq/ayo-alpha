@@ -15,13 +15,13 @@ import java.util.List;
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_NAME = "EventManager.db";
 
     private static final String TABLE_EVENT = "event";
 
-    private static final String KEY_ID = "id";
+    private static final String KEY_ID = "_id";
     private static final String KEY_EVENT = "event";
     private static final String KEY_LOC = "location";
     private static final String KEY_DATE = "date";
@@ -71,12 +71,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         else return true;
     }
 
-    public Event getEvent(int id) {
+    public Event getEvent(int _id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_EVENT, new String[] { KEY_ID,
                         KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+                new String[] { String.valueOf(_id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
