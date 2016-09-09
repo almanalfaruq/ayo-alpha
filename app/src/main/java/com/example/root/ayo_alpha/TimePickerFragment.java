@@ -18,6 +18,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 //    public static String txtHour, txtMin;
     TextView tv;
     public static String text = "";
+    String sminute;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
@@ -41,7 +42,11 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 //        //Display the user changed time on TextView
 //        tv.setText(tv.getText()+ "Hour : " + String.valueOf(hourOfDay)
 //                + "\nMinute : " + String.valueOf(minute) + "\n");
-        tv.setText(hourOfDay + ":" + minute);
+        if (minute == 0)
+        {
+            sminute = "00";
+        }
+        tv.setText(hourOfDay + ":" + sminute);
 //        txtHour = String.valueOf(hourOfDay); txtMin = String.valueOf(minute);
     }
 
