@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,7 +22,10 @@ public class add_kegiatan extends AppCompatActivity
     DatabaseHandler db;
     ImageButton goToHomeScreen, btnSetLoc;
     EditText textTitle, textdesc;
+    TextView textDate, textTime;
     Button save;
+    DatePickerFragment dp;
+    TimePickerFragment tp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,8 @@ public class add_kegiatan extends AppCompatActivity
         });
 
         //Change font dari title, description, dan tombol save
+        textDate = (TextView) findViewById(R.id.tv);
+        textTime = (TextView) findViewById(R.id.tv2);
         textTitle = (EditText) findViewById(R.id.txtTitle);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
         textTitle.setTypeface(type);
@@ -76,7 +82,8 @@ public class add_kegiatan extends AppCompatActivity
 
     public void addData() {
         db = new DatabaseHandler(this);
-        boolean isInserted = db.addEvent(textTitle.getText().toString(), "", "", textdesc.getText().toString(), "", "", "");
+//        Toast.makeText(getApplicationContext(), dp.txtDay, Toast.LENGTH_SHORT).show();
+        boolean isInserted = db.addEvent(textTitle.getText().toString(), "", textDate.getText().toString(), textdesc.getText().toString(), textTime.getText().toString(), "", "");
         if (isInserted)
             Toast.makeText(getApplicationContext(), textTitle.getText().toString() + " is added", Toast.LENGTH_SHORT).show();
         else

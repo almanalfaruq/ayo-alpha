@@ -32,8 +32,8 @@
             android:layout_weight="0.5"
             android:onClick="onMapSearch"
             android:text="Search"
-            android:background="@color/textColorPrimary"
-            android:textColor="@color/fontgelap" />
+            android:background="@color/colorPrimary"
+            android:textColor="@color/textColorPrimary" />
 
     </LinearLayout>
 
@@ -45,4 +45,31 @@
     android:name="com.example.root.ayo_alpha.MapScreen" />
 
     </LinearLayout>
-    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="490dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:elevation="5dp"
+            android:background="@color/textColorPrimary">
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:text="SAVE"
+                android:id="@+id/savemapbtn"
+                android:textColor="@color/fontgelap"
+                android:textSize="8dp"
+                style='style="?android:attr/borderlessButtonStyle"'
+                android:background="@null" />
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

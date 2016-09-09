@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,6 +38,8 @@ import java.util.List;
 public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    public Double lat, lng;
+    private Button savemap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,18 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        savemap = (Button) findViewById(R.id.savemapbtn);
+        savemap.setOnClickListener(new View.OnClickListener() {
+            //Back
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), add_kegiatan.class);
+                startActivity(myIntent);
+                finish();
+            }
+
+        });
 
     }
 
@@ -90,14 +105,23 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
                 mMap.addCircle(new CircleOptions()
                 .center(latLng)
                 .radius(100)
-                .strokeColor(R.color.black)
+                .strokeColor(R.color.colorPrimary)
                 .fillColor(R.color.colorPrimary));
                 mMap.addMarker(new MarkerOptions().position(latLng).title("Tes"));
+                lat = latLng.latitude;
+                lng = latLng.longitude;
 //                Toast.makeText(getApplicationContext(), String.valueOf(latLng.latitude) + "," + String.valueOf(latLng.longitude), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
+    public Double getLat() {
+        return lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
 
 }

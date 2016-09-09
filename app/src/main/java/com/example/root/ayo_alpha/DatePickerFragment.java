@@ -14,6 +14,8 @@ import java.util.Calendar;
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
+    TextView tv;
+    public static String text = "";
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Use the current date as the default date in the date picker
@@ -32,13 +34,31 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
     public void onDateSet(DatePicker view, int year, int month, int day) {
         //Do something with the date chosen by the user
-        TextView tv = (TextView) getActivity().findViewById(R.id.tv);
-        tv.setText("Date changed...");
-        tv.setText(tv.getText() + "\nYear: " + year);
-        tv.setText(tv.getText() + "\nMonth: " + month);
-        tv.setText(tv.getText() + "\nDay of Month: " + day);
-
+        tv = (TextView) getActivity().findViewById(R.id.tv);
+        tv.setText(day + "-" + month + "-" + year);
+//        tv.setText("Date changed...");
+//        tv.setText(tv.getText() + "\nYear: " + year);
+//        tv.setText(tv.getText() + "\nMonth: " + month);
+//        tv.setText(tv.getText() + "\nDay of Month: " + day);
+//        txtYear = String.valueOf(year); txtMonth = String.valueOf(month); txtDay = String.valueOf(day);
         String stringOfDate = day + "/" + month + "/" + year;
-        tv.setText(tv.getText() + "\n\nFormatted date: " + stringOfDate);
+//        tv.setText(tv.getText() + "\n\nFormatted date: " + stringOfDate);
+    }
+
+//    public String getTxtDay() {
+//        return txtDay;
+//    }
+//
+//    public String getTxtMonth() {
+//        return txtMonth;
+//    }
+//
+//    public String getTxtYear() {
+//        return txtYear;
+//    }
+
+    public String getDate() {
+        text = tv.getText().toString();
+        return text;
     }
 }

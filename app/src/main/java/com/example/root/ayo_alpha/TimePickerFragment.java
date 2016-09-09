@@ -15,6 +15,10 @@ import android.widget.TimePicker;
  */
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
+//    public static String txtHour, txtMin;
+    TextView tv;
+    public static String text = "";
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Use the current time as the default values for the time picker
@@ -31,11 +35,26 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     public void onTimeSet(TimePicker view, int hourOfDay, int minute){
         //Do something with the user chosen time
         //Get reference of host activity (XML Layout File) TextView widget
-        TextView tv = (TextView) getActivity().findViewById(R.id.tv);
-        //Set a message for user
-        tv.setText("Your chosen time is...\n\n");
-        //Display the user changed time on TextView
-        tv.setText(tv.getText()+ "Hour : " + String.valueOf(hourOfDay)
-                + "\nMinute : " + String.valueOf(minute) + "\n");
+        tv = (TextView) getActivity().findViewById(R.id.tv2);
+//        //Set a message for user
+//        tv.setText("Your chosen time is...\n\n");
+//        //Display the user changed time on TextView
+//        tv.setText(tv.getText()+ "Hour : " + String.valueOf(hourOfDay)
+//                + "\nMinute : " + String.valueOf(minute) + "\n");
+        tv.setText(hourOfDay + ":" + minute);
+//        txtHour = String.valueOf(hourOfDay); txtMin = String.valueOf(minute);
+    }
+
+//    public String getTxtHour() {
+//        return txtHour;
+//    }
+//
+//    public String getTxtMin() {
+//        return txtMin;
+//    }
+
+    public String getClock() {
+        text = tv.getText().toString();
+        return text;
     }
 }

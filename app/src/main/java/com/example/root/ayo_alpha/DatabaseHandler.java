@@ -43,7 +43,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_LOC + " TEXT, "
                 + KEY_DATE + " TEXT, "
                 + KEY_DESC + " TEXT,"
-                + KEY_TIME + " TEXT)");
+                + KEY_TIME + " TEXT,"
+                + KEY_LAT + " TEXT,"
+                + KEY_LONG + " TEXT)");
         Log.d("Creating: ", "Database created.");
     }
 
