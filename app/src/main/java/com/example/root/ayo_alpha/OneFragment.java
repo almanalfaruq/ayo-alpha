@@ -85,7 +85,9 @@ public class OneFragment extends Fragment{
                 gpsTracker = new GPSTracker(getActivity());
                 double lat = gpsTracker.getLocation().getLatitude();
                 double lng = gpsTracker.getLocation().getLongitude();
-                event = db.getEvent(5);
+                Cursor c = db.getMinId();
+                int _id = c.getColumnIndex("MIN");
+                event = db.getEvent(_id);
                 timeEvent = event.getTime();
                 calendar = Calendar.getInstance();
                 timeNow = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));

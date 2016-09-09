@@ -1,5 +1,7 @@
 package com.example.root.ayo_alpha;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.design.widget.FloatingActionButton;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             R.mipmap.clipboard,
     };
 
+    NotificationService notificationService;
     DatabaseHandler db;
 
     @Override
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        notificationService = new NotificationService();
         db = new DatabaseHandler(this);
 
     }
@@ -100,4 +104,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void handleNotification() {
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 5000, pendingIntent);
+    }
 }

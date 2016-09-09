@@ -164,12 +164,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getLatLng(int _id) {
-        String[] tableColumn = new String[] { "latitude", "longitude" };
-        String whereClause = "_id = ?";
-        String[] whereArgs = new String[] { String.valueOf(_id) };
+    public Cursor getMinId() {
+        String query = "SELECT MIN(_id) AS MIN FROM " + TABLE_EVENT;
+//        String[] tableColumn = new String[] { "(SELECT MIN(_id) FROM " + TABLE_EVENT +") AS MIN" };
+//        String whereClause = "_id = ?";
+//        String[] whereArgs = new String[] { String.valueOf(_id) };
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(true, TABLE_EVENT, tableColumn, whereClause, whereArgs, null, null, null, null);
+//        Cursor cursor = db.query(true, TABLE_EVENT, tableColumn, whereClause, whereArgs, null, null, null, null);
+        Cursor cursor = db.rawQuery(query, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }

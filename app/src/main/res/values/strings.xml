@@ -38,4 +38,7 @@
     <string name="play_again">Play Again</string>
 
     <string name="G_API_KEY">AIzaSyBuo8J7N4AnFMfktukgGTvjyxWLHo3_HW8</string>
+
+    <string name="message_box_title">Halo</string>
+    <string name="message_timesheet_not_up_to_date">Halo di sana</string>
 </resources>
