@@ -41,6 +41,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
     public static Double lat;
     public static Double lng;
     private Button savemap;
+    add_kegiatan addKegiatan = new add_kegiatan();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
 //                Intent myIntent = new Intent(getApplicationContext(), add_kegiatan.class);
 //                startActivity(myIntent);
                 onBackPressed();
+                addKegiatan.writeData(lat,lng);
             }
         });
     }
