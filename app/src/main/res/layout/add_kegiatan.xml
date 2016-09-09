@@ -167,6 +167,21 @@
             android:id="@+id/tv2"
             android:layout_marginTop="30dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/txtLat"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/txtLong"
+            android:layout_marginTop="30dp" />
     </LinearLayout>
 
 </RelativeLayout>
