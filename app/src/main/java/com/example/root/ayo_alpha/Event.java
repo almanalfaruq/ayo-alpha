@@ -11,18 +11,22 @@ public class Event {
     private String date;
     private String description;
     private String time;
+    private String latitude;
+    private String longitude;
 
     public Event() {
 
     }
 
-    public Event(int _id, String event, String location, String date, String description, String time) {
+    public Event(int _id, String event, String location, String date, String description, String time, String latitude, String longitude) {
         this._id = _id;
         this.event = event;
         this.location = location;
         this.date = date;
         this.description = description;
         this.time = time;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -71,6 +75,23 @@ public class Event {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
 }

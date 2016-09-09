@@ -21,12 +21,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final String TABLE_EVENT = "event";
 
-    private static final String KEY_ID = "_id";
-    private static final String KEY_EVENT = "event";
-    private static final String KEY_LOC = "location";
-    private static final String KEY_DATE = "date";
-    private static final String KEY_DESC = "description";
-    private static final String KEY_TIME = "time";
+    public static final String KEY_ID = "_id";
+    public static final String KEY_EVENT = "event";
+    public static final String KEY_LOC = "location";
+    public static final String KEY_DATE = "date";
+    public static final String KEY_DESC = "description";
+    public static final String KEY_TIME = "time";
+    public static final String KEY_LAT = "latitude";
+    public static final String KEY_LONG = "longitude";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -54,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addEvent(String event, String location, String date, String desc, String time) {
+    public boolean addEvent(String event, String location, String date, String desc, String time, String lat, String longitude) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -62,7 +64,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_LOC, location); // Event Location
         values.put(KEY_DATE, date); // Event Date
         values.put(KEY_DESC, desc); // Event Description
-        values.put(KEY_TIME, time);
+        values.put(KEY_TIME, time); // Event Time
+        values.put(KEY_LAT, lat); // Event latitude
+        values.put(KEY_LONG, longitude); // Eevnt longitude
 
         // Inserting Row
         long result = db.insert(TABLE_EVENT, null, values);
@@ -81,7 +85,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Event event = new Event(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getString(5),
+                cursor.getString(6),
+                cursor.getString(7));
         // return event
         return event;
     }
