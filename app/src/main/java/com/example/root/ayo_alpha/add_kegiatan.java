@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +21,14 @@ import android.widget.Toast;
 public class add_kegiatan extends AppCompatActivity
 {
     DatabaseHandler db;
-    ImageButton goToHomeScreen, btnSetLoc;
-    EditText textTitle, textdesc;
-    TextView textDate, textTime, textLat, textLng;
+    ImageButton goToHomeScreen;
+    EditText textTitle, textdesc, txtPlace;
+    TextView textDate, textTime, textLat, textLng, Date, Time, Location;
+    String lat,lng;
     Button save;
     DatePickerFragment dp;
     TimePickerFragment tp;
+    ImageButton btnSetLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +55,19 @@ public class add_kegiatan extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getApplicationContext(), MapScreen.class);
-                startActivity(myIntent);
+                startActivityForResult(myIntent, 1);
             }
 
         });
 
         //Change font dari title, description, dan tombol save
+        Date = (TextView) findViewById(R.id.textView6);
+        Time = (TextView) findViewById(R.id.textView2);
+        Location = (TextView) findViewById(R.id.textView);
         textDate = (TextView) findViewById(R.id.tv);
         textTime = (TextView) findViewById(R.id.tv2);
         textTitle = (EditText) findViewById(R.id.txtTitle);
+        txtPlace = (EditText) findViewById(R.id.txtPlace);
         textLat = (TextView) findViewById(R.id.txtLat);
         textLng = (TextView) findViewById(R.id.txtLong);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
@@ -68,6 +75,9 @@ public class add_kegiatan extends AppCompatActivity
         textdesc = (EditText) findViewById(R.id.txtDesc);
         textdesc.setTypeface(type);
         Typeface type2 = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Medium.ttf");
+        Date.setTypeface(type2);
+        Time.setTypeface(type2);
+        Location.setTypeface(type2);
         save = (Button) findViewById(R.id.btnSave);
         save.setTypeface(type2);
         save.setOnClickListener(new View.OnClickListener() {
@@ -83,16 +93,28 @@ public class add_kegiatan extends AppCompatActivity
         });
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                lat = data.getStringExtra("latitude");
+                lng = data.getStringExtra("longitude");
+                textLat.setText(lat);
+                textLng.setText(lng);
+            }
+        }
+    }
+
     public void addData() {
         db = new DatabaseHandler(this);
 //        Toast.makeText(getApplicationContext(), dp.txtDay, Toast.LENGTH_SHORT).show();
         boolean isInserted = db.addEvent(textTitle.getText().toString()
-                , ""
+                , txtPlace.getText().toString()
                 , textDate.getText().toString()
                 , textdesc.getText().toString()
                 , textTime.getText().toString()
-                , ""
-                , "");
+                , textLat.getText().toString()
+                , textLng.getText().toString());
         if (isInserted)
             Toast.makeText(getApplicationContext()
                     , textTitle.getText().toString() + " is added"
@@ -113,9 +135,5 @@ public class add_kegiatan extends AppCompatActivity
         newFragment.show(getFragmentManager(),"TimePicker");
     }
 
-    public void writeData(Double lat, Double lng) {
-        textLng.setText(String.valueOf(lat));
-        textLat.setText(String.valueOf(lng));
-    }
 
 }

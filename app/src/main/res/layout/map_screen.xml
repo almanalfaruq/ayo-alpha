@@ -44,7 +44,23 @@
     class="com.google.android.gms.maps.SupportMapFragment"
     android:name="com.example.root.ayo_alpha.MapScreen" />
 
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/txtLat"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/txtLong"
+        android:visibility="invisible" />
+
+</LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -71,5 +87,6 @@
                 style='style="?android:attr/borderlessButtonStyle"'
                 android:background="@null" />
         </FrameLayout>
+
     </LinearLayout>
 </RelativeLayout>

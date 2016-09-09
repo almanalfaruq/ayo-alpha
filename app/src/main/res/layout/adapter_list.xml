@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:text="txtLocation"
             android:layout_weight="1"
-            android:height="20sp" />
+            android:height="20sp"
+            android:layout_marginLeft="30dp" />
 
         <TextView
             android:layout_height="wrap_content"
