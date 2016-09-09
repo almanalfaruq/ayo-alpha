@@ -20,9 +20,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/batal_button"
             android:src="@android:drawable/ic_delete"
-            android:tint="@color/textColorPrimary"
             android:layout_alignParentLeft="true"
             android:background="@null"
+            android:tint="@color/textColorPrimary"
             android:layout_marginLeft="15dp" />
 
         <Button
@@ -106,39 +106,44 @@
                 android:layout_height="match_parent"
                 android:gravity="center">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Set Date"
-                    android:id="@+id/btnSetDate"
-                    android:background="@color/textColorPrimary"
-                    android:onClick="onButtonClicked"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:elevation="4dp"
-                    android:textColor="@color/fontgelap" />
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Set Time"
-                    android:id="@+id/btnSetTime"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/textColorPrimary"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:elevation="4dp"
-                    android:textColor="@color/fontgelap"
-                    android:onClick="onButtonClicked2" />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnSetDate"
+                        android:background="@mipmap/calendar"
+                        android:onClick="onButtonClicked"/>
+                </FrameLayout>
 
-                <Button
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:id="@+id/btnSetLoc"
-                    android:background="@color/textColorPrimary"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:elevation="4dp"
-                    android:textColor="@color/fontgelap"/>
+                    android:layout_marginRight="5dp">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/btnSetTime"
+                        android:background="@mipmap/clock"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onButtonClicked2" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/btnSetLoc"
+                        android:background="@mipmap/location"/>
+                </FrameLayout>
 
             </LinearLayout>
 
