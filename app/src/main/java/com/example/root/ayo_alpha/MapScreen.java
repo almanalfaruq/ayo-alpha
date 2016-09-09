@@ -11,23 +11,30 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 
 import java.io.IOException;
 import java.util.List;
 
-public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
+public class MapScreen extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -38,6 +45,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     public void onMapSearch(View view) {
@@ -76,58 +84,19 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             return;
         }
         mMap.setMyLocationEnabled(true);
-    }
+        mMap.setOnMapLongClickListener(new OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng latLng) {
+                mMap.addCircle(new CircleOptions()
+                .center(latLng)
+                .radius(100)
+                .strokeColor(R.color.black)
+                .fillColor(R.color.colorPrimary));
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Tes"));
+//                Toast.makeText(getApplicationContext(), String.valueOf(latLng.latitude) + "," + String.valueOf(latLng.longitude), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-
-//        // Enable MyLocation Layer of Google Map
-//        mMap.setMyLocationEnabled(true);
-//
-//        // Get LocationManager object from System Service LOCATION_SERVICE
-//        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//
-//        // Create a criteria object to retrieve provider
-//        Criteria criteria = new Criteria();
-//
-//        // Get the name of the best provider
-//        String provider = locationManager.getBestProvider(criteria, true);
-//
-//        // Get Current Location
-//        Location myLocation = locationManager.getLastKnownLocation(provider);
-//
-//        // set map type
-//        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//
-//        // Get latitude of the current location
-//        double latitude = myLocation.getLatitude();
-//
-//        // Get longitude of the current location
-//        double longitude = myLocation.getLongitude();
-//
-//        // Create a LatLng object for the current location
-//        LatLng latLng = new LatLng(latitude, longitude);
-//
-//        // Show the current location in Google Map
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-//
-//        // Zoom in the Google Map
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(25));
-//
-//
-//        LatLng myCoordinates = new LatLng(latitude, longitude);
-//        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(myCoordinates, 16);
-//        mMap.animateCamera(yourLocation);
-
-    private void drawCircle( LatLng location ) {
-        CircleOptions options = new CircleOptions();
-        options.center( location );
-        //Radius in meters
-        options.radius( 10 );
-        options.fillColor( getResources()
-                .getColor( R.color.colorPrimary ) );
-        options.strokeColor( getResources()
-                .getColor( R.color.black ) );
-        options.strokeWidth( 10 );
-        mMap.addCircle(options);
     }
 
 
