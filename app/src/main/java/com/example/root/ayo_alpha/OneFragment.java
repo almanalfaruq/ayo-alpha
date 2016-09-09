@@ -37,6 +37,7 @@ public class OneFragment extends Fragment{
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.home_real, container, false);
 
+        //Ganti font di bagian tabel di homescreen
         listView = (ListView) view.findViewById(R.id.listView);
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         activity = (TextView) view.findViewById(R.id.textView3);

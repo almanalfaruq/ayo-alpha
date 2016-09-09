@@ -127,7 +127,8 @@
                     android:background="@color/textColorPrimary"
                     style="?android:attr/borderlessButtonStyle"
                     android:elevation="4dp"
-                    android:textColor="@color/fontgelap"/>
+                    android:textColor="@color/fontgelap"
+                    android:onClick="onButtonClicked2" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -143,15 +144,24 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Date"
+            android:id="@+id/tv"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Date"
-        android:id="@+id/tv"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/tv2"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

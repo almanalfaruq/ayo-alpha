@@ -28,6 +28,7 @@ public class add_kegiatan extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_kegiatan);
 
+        //Tombol batal (tanda x) di klik, balik ke homescreen
         goToHomeScreen = (ImageButton) findViewById(R.id.batal_button);
         goToHomeScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -37,6 +38,8 @@ public class add_kegiatan extends AppCompatActivity
             }
 
         });
+
+        //Change font dari title, description, dan tombol save
         textTitle = (EditText) findViewById(R.id.txtTitle);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
         textTitle.setTypeface(type);
@@ -64,9 +67,16 @@ public class add_kegiatan extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Can't insert data", Toast.LENGTH_LONG).show();
     }
 
+    //OnClick SetDate
     public void onButtonClicked(View v){
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(),"Date Picker");
+    }
+
+    //OnClick SetTime
+    public void onButtonClicked2 (View v){
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(),"TimePicker");
     }
 
 }
