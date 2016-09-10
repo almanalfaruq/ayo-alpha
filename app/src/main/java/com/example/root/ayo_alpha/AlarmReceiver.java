@@ -28,7 +28,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         int minutes = now.get(Calendar.MINUTE);
         String clock = String.valueOf(hour) + ":" + String.valueOf(minutes);
         Cursor cursor = db.getMinId();
-        event = db.getEvent(cursor.getColumnIndex("MIN"));
+        int id = cursor.getInt(cursor.getColumnIndex("id"));
+        event = db.getEvent(id);
         String time = event.getTime();
         if(clock == time) {
             NotificationCompat.Builder mBuilder =

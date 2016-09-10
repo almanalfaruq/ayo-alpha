@@ -12,8 +12,8 @@
         android:layout_height="200dp"
         android:layout_marginTop="30dp"
         android:indeterminate="false"
-        android:max="48"
-        android:progress="1"
+        android:max="100"
+        android:progress="100"
         android:progressDrawable="@drawable/circular_progressbar" />
 
     <TextView

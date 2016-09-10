@@ -92,4 +92,13 @@
         android:id="@+id/btnTest"
         android:layout_gravity="center_horizontal" />
 
+    <EditText
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtID"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#FFFFFF"
+        android:hint="ID"
+        android:textAlignment="center"/>
+
 </LinearLayout>

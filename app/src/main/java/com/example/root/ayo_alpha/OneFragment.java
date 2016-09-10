@@ -13,6 +13,7 @@ package com.example.root.ayo_alpha;
         import android.location.LocationManager;
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
+        import android.support.v4.app.FragmentManager;
         import android.support.v4.widget.CursorAdapter;
         import android.support.v4.widget.SimpleCursorAdapter;
         import android.util.Log;
@@ -33,11 +34,12 @@ package com.example.root.ayo_alpha;
         import java.util.Calendar;
         import java.util.Date;
 
-public class OneFragment extends Fragment{
+public class OneFragment extends Fragment {
 
     DatabaseHandler db;
     Button btnShow;
     GPSTracker gpsTracker;
+    EditText txtID;
 //    Location loc;
     Event event;
     Calendar calendar;
@@ -67,6 +69,7 @@ public class OneFragment extends Fragment{
         View view =  inflater.inflate(R.layout.home_real, container, false);
 
         //Ganti font di bagian tabel di homescreen
+        txtID = (EditText) view.findViewById(R.id.txtID);
         listView = (ListView) view.findViewById(R.id.listView);
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         activity = (TextView) view.findViewById(R.id.textView3);
@@ -85,9 +88,9 @@ public class OneFragment extends Fragment{
                 gpsTracker = new GPSTracker(getActivity());
                 double lat = gpsTracker.getLocation().getLatitude();
                 double lng = gpsTracker.getLocation().getLongitude();
-                Cursor c = db.getMinId();
-                int _id = c.getColumnIndex("MIN");
-                event = db.getEvent(_id);
+//                Cursor c = db.getMinId();
+//                int id = c.getInt(c.getColumnIndex("id"));
+                event = db.getEvent(Integer.parseInt(txtID.getText().toString()));
                 timeEvent = event.getTime();
                 calendar = Calendar.getInstance();
                 timeNow = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendar.get(Calendar.MINUTE));

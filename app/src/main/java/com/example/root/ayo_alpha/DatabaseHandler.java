@@ -165,7 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public Cursor getMinId() {
-        String query = "SELECT MIN(_id) AS MIN FROM " + TABLE_EVENT;
+        String query = "SELECT MIN(_id) AS id FROM " + TABLE_EVENT;
 //        String[] tableColumn = new String[] { "(SELECT MIN(_id) FROM " + TABLE_EVENT +") AS MIN" };
 //        String whereClause = "_id = ?";
 //        String[] whereArgs = new String[] { String.valueOf(_id) };
