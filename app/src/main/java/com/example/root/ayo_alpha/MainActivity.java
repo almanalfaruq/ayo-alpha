@@ -62,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
     //Set icon di tabs
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+//        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
     }
 
     //Set tulisan untuk di tabs (gak terpakai karena pakainya icon [source code di atas])
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new OneFragment(), "HOME");
-        adapter.addFrag(new TwoFragment(), "CONCLUSION");
+//        adapter.addFrag(new TwoFragment(), "CONCLUSION");
         viewPager.setAdapter(adapter);
     }
 
