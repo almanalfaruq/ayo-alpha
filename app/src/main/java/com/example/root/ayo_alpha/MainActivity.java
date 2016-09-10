@@ -20,7 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TabLayout tabLayout;
+    public TabLayout tabLayout;
     private ViewPager viewPager;
     private FloatingActionButton fab;
     private int[] tabIcons = {
@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Adapter untuk tabs
     class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
+        public final List<Fragment> mFragmentList = new ArrayList<>();
+        public final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
