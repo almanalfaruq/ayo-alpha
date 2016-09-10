@@ -6,7 +6,8 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.root.ayo_alpha.TwoFragment"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:weightSum="1">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,28 +15,38 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp">
 
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/arc_progress"
-            android:background="@null"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            custom:arc_progress="80"
-            custom:arc_bottom_text="On time"
-            custom:arc_text_size="40dp"
-            custom:arc_bottom_text_size="20dp"
-            custom:arc_text_color="@color/textColorPrimary"
-            android:layout_gravity="center_horizontal"/>
+        <!--<com.github.lzyzsd.circleprogress.ArcProgress-->
+            <!--android:id="@+id/arc_progress"-->
+            <!--android:background="@null"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--custom:arc_progress="80"-->
+            <!--custom:arc_bottom_text="On time"-->
+            <!--custom:arc_text_size="40dp"-->
+            <!--custom:arc_bottom_text_size="20dp"-->
+            <!--custom:arc_text_color="@color/textColorPrimary"-->
+            <!--android:layout_gravity="center_horizontal"/>-->
 
-        <ProgressBar
-            android:id="@+id/circular_progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="30dp"
-            android:indeterminate="false"
-            android:max="48"
-            android:progress="1"
-            android:progressDrawable="@drawable/circular_progressbar" />
+        <!--<ProgressBar-->
+            <!--android:id="@+id/circular_progress_bar"-->
+            <!--style="?android:attr/progressBarStyleHorizontal"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:indeterminate="false"-->
+            <!--android:max="48"-->
+            <!--android:progress="1"-->
+            <!--android:progressDrawable="@drawable/circular_progressbar" />-->
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0%"
+        android:id="@+id/textView7"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="50dp" />
 </LinearLayout>
