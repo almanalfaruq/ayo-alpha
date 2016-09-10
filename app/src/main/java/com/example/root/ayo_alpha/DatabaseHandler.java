@@ -80,13 +80,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Event getEvent(int _id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_EVENT, new String[] { KEY_ID,
-                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME }, KEY_ID + "=?",
+        Cursor cursor = db.query(true, TABLE_EVENT, new String[] { KEY_ID,
+                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME, KEY_LAT, KEY_LONG }, KEY_ID + "=?",
                 new String[] { String.valueOf(_id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Event event = new Event(Integer.parseInt(cursor.getString(0)),
+        Event event = new Event(cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3),
@@ -157,6 +157,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        String query = "SELECT * FROM " + TABLE_EVENT;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(true, TABLE_EVENT, null, null, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public Cursor getMinId() {
+        String query = "SELECT MIN(_id) AS MIN FROM " + TABLE_EVENT;
+//        String[] tableColumn = new String[] { "(SELECT MIN(_id) FROM " + TABLE_EVENT +") AS MIN" };
+//        String whereClause = "_id = ?";
+//        String[] whereArgs = new String[] { String.valueOf(_id) };
+        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.query(true, TABLE_EVENT, tableColumn, whereClause, whereArgs, null, null, null, null);
+        Cursor cursor = db.rawQuery(query, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
