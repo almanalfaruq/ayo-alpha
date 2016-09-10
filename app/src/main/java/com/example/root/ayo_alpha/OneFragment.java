@@ -53,7 +53,7 @@ public class OneFragment extends Fragment {
     }
 
     ListView listView;
-    TextView activity, location, date, time, nextactivity;
+    TextView activity, location, date, time, txtPercent;
     Double valueResult;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,9 +67,13 @@ public class OneFragment extends Fragment {
         db = new DatabaseHandler(getActivity());
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.home_real, container, false);
+        double percent = ((double) db.getOnTimeCount()/(double) db.getEventCount())*100;
+
 
         //Ganti font di bagian tabel di homescreen
         txtID = (EditText) view.findViewById(R.id.txtID);
+        txtPercent = (TextView) view.findViewById(R.id.txtPercent);
+        txtPercent.setText(String.valueOf(percent) + "%");
         listView = (ListView) view.findViewById(R.id.listView);
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         activity = (TextView) view.findViewById(R.id.textView3);
@@ -114,17 +118,20 @@ public class OneFragment extends Fragment {
                 valueResult = CalculationByDistance(lat, lng, event.getLatitude(), event.getLongitude());
                 Log.d("Selisih waktu", String.valueOf(secc));
                 if (distance[0] > 100.0 && secc <= 0.0) {
-                    Toast.makeText(getActivity(), "Terlalu jauh dan anda terlambat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Anda terlambat", Toast.LENGTH_SHORT).show();
+                    db.addOnTime(0, Integer.parseInt(txtID.getText().toString()));
                 } else if (distance[0] > 100.0 && secc > 0.0) {
-                    Toast.makeText(getActivity(), "Terlalu jauh dan anda belum terlambat", Toast.LENGTH_SHORT).show();
+                    db.addOnTime(1, Integer.parseInt(txtID.getText().toString()));
+                    Toast.makeText(getActivity(), "Tepat waktu!", Toast.LENGTH_SHORT).show();
                 } else if (distance[0] < 100 && secc > 0.0) {
-                    Toast.makeText(getActivity()
-                            , "Jarak anda dengan tempat itu: " + String.valueOf(valueResult) + " meter" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Tepat waktu!", Toast.LENGTH_SHORT).show();
+                    db.addOnTime(1, Integer.parseInt(txtID.getText().toString()));
                 } else if (distance[0] < 100 && secc <= 0.0) {
-                    Toast.makeText(getActivity()
-                            , "Jarak anda dengan tempat itu: " + String.valueOf(valueResult) + " meter, dan anda terlambat" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Anda terlambat", Toast.LENGTH_SHORT).show();
+                    db.addOnTime(0, Integer.parseInt(txtID.getText().toString()));
                 }
-
+                double percent = ((double) db.getOnTimeCount()/(double) db.getEventCount())*100;
+                txtPercent.setText(String.valueOf(percent) + "%");
             }
 
         });

@@ -85,12 +85,29 @@
 
     </FrameLayout>
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/btnTest"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:elevation="5dp">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="CHECK!"
+            android:id="@+id/btnTest"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/textColorPrimary"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtID"
+            android:hint="Activity Order"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -102,7 +119,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Percentage"
-            android:id="@+id/textView8"
+            android:id="@+id/txtPercent"
             android:layout_gravity="center"
             android:textSize="40dp" />
     </FrameLayout>

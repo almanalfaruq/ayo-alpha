@@ -29,6 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String KEY_TIME = "time";
     public static final String KEY_LAT = "latitude";
     public static final String KEY_LONG = "longitude";
+    public static final String KEY_ACC = "onTime";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,7 +46,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_DESC + " TEXT,"
                 + KEY_TIME + " TEXT,"
                 + KEY_LAT + " TEXT,"
-                + KEY_LONG + " TEXT)");
+                + KEY_LONG + " TEXT,"
+                + KEY_ACC + " INTEGER)");
         Log.d("Creating: ", "Database created.");
     }
 
@@ -58,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addEvent(String event, String location, String date, String desc, String time, String lat, String longitude) {
+    public boolean addEvent(String event, String location, String date, String desc, String time, String lat, String longitude, int onTime) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -69,6 +71,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_TIME, time); // Event Time
         values.put(KEY_LAT, lat); // Event latitude
         values.put(KEY_LONG, longitude); // Eevnt longitude
+        values.put(KEY_ACC, onTime);
 
         // Inserting Row
         long result = db.insert(TABLE_EVENT, null, values);
@@ -77,11 +80,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         else return true;
     }
 
+    public void addOnTime(int onTime, int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ACC, onTime);
+        db.update(TABLE_EVENT, values, "_id="+id, null);
+    }
+
     public Event getEvent(int _id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(true, TABLE_EVENT, new String[] { KEY_ID,
-                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME, KEY_LAT, KEY_LONG }, KEY_ID + "=?",
+                        KEY_EVENT, KEY_LOC, KEY_DATE, KEY_DESC, KEY_TIME, KEY_LAT, KEY_LONG, KEY_ACC }, KEY_ID + "=?",
                 new String[] { String.valueOf(_id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -93,7 +104,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 cursor.getString(4),
                 cursor.getString(5),
                 cursor.getString(6),
-                cursor.getString(7));
+                cursor.getString(7),
+                cursor.getInt(8));
         // return event
         return event;
     }
@@ -148,9 +160,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String countQuery = "SELECT * FROM " + TABLE_EVENT;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
+        int count = cursor.getCount();
         db.close();
-        return cursor.getCount();
+        return count;
+    }
+
+    public int getOnTimeCount() {
+        String countQuery = "SELECT * FROM " + TABLE_EVENT + " WHERE " + KEY_ACC + "=1";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        db.close();
+        return count;
     }
 
     public Cursor getAllData() {

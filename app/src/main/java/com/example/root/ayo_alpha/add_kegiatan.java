@@ -114,7 +114,8 @@ public class add_kegiatan extends AppCompatActivity
                 , textdesc.getText().toString()
                 , textTime.getText().toString()
                 , textLat.getText().toString()
-                , textLng.getText().toString());
+                , textLng.getText().toString()
+                ,0);
         if (isInserted)
             Toast.makeText(getApplicationContext()
                     , textTitle.getText().toString() + " is added"
